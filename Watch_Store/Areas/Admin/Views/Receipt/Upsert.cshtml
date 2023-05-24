@@ -1,0 +1,140 @@
+﻿@{
+    Layout = "_AdminLayout";
+}
+@model ReceiptVM
+<div class="row">
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">Thêm vào phiếu</div>
+            <div class="panel-body">
+                <form method="post" enctype="multipart/form-data">
+                    <div class="col-md-10">
+                      @*  <div class="form-group">
+                            <label>Danh mục</label>
+                            <select asp-for="@Model.Receipt.Product.CategoryId" asp-items="@Model.Receipt.Product" class="form-select border-0 shadow">
+                                <option disabled selected>--Select Category--</option>
+                            </select>
+                            <label asp-for="Product.CategoryId" class="ms-2"></label>
+                            <span asp-validation-for="Product.CategoryId" class="text-danger"></span>
+
+                        </div>*@
+                        <div class="form-group">
+                            <label>Thương Hiệu</label>
+                            <select class="form-control" name="select-brands" fdprocessedid="pjt6s">
+                                <option>Chọn lọc theo thương hiệu</option>
+                                <option value="1">Sam Sung</option>
+                                <option value="2">OPPO</option>
+                                <option value="3">Lenovo</option>
+                                <option value="4">Nokia</option>
+                                <option value="5">Razer</option>
+                                <option value="6">Vivo</option>
+                                <option value="7">LG</option>
+                                <option value="8">Dell</option>
+                                <option value="9">HP</option>
+                                <option value="10">Mac</option>
+                                <option value="11">Cooler Master</option>
+                                <option value="12">Asus</option>
+                                <option value="13">Acer</option>
+                            </select>
+
+                        </div>
+                        <div class="form-group">
+                            <label>Sản phẩm</label>
+                             <div class="form-group">
+                            <label>Danh mục</label>
+                            <select asp-for="@Model.Receipt.Product.Id" asp-items="@Model.Productlist" class="form-select border-0 shadow">
+                            <option disabled selected>--Select Category--</option>
+                            </select>
+                                <label asp-for="Receipt.Product.Id" class="ms-2"></label>
+                                <span asp-validation-for="Receipt.Product.Id" class="text-danger"></span>
+
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Number</label>
+                            <input asp-for="Receipt.Count" class="form-control" fdprocessedid="ja2vu">
+                            <label>Price</label>
+                            <input asp-for="Receipt.Price" class="form-control" fdprocessedid="96ihk">
+                        </div>
+
+                        <div class="form-group">
+                            <button type="submit" name="submitAddGoods" class="btn btn-info" fdprocessedid="bp1wtk"><i class="glyphicon glyphicon-floppy-saved"></i> Thêm</button>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            <div class="panel-heading text-primary">
+                Thông tin chi tiết thêm phiếu
+            </div>
+            <form method="post">
+                <div class="panel-body">
+                    <div class="bootstrap-table">
+                        <div class="fixed-table-container">
+                            <div class="fixed-table-header">
+                                <table></table>
+                            </div>
+                            <div class="fixed-table-body">
+                                <div class="btn pull-left">
+
+                                    <button class="btn btn-default" type="submit" name="updateGoods" title="Refresh" style="margin-right: 10px" fdprocessedid="13hmig">
+                                        <i class="glyphicon glyphicon-refresh icon-refresh"></i> Cập nhập phiếu nhập
+                                    </button>
+                                    <button class="btn btn-default" name="clearGoods" type="submit" title="Refresh" fdprocessedid="lnatu">
+                                        <i class="glyphicon glyphicon-remove"></i> Xóa tất cả
+                                    </button>
+
+
+                                </div>
+
+                                <div class="bootstrap-table">
+                                    <div class="fixed-table-toolbar"></div><div class="fixed-table-container">
+                                        <div class="fixed-table-header"><table></table></div><div class="fixed-table-body">
+                                            <table data-toggle="table" data-select-item-name="toolbar1" data-pagination="true" data-sort-name="name" data-sort-order="desc" class="table table-hover">
+                                                <thead>
+                                                    <tr><th style=""><div class="th-inner sortable">Tên sản phẩm</div><div class="fht-cell"></div></th><th style=""><div class="th-inner sortable">Hình ảnh</div><div class="fht-cell"></div></th><th style=""><div class="th-inner sortable">Số lượng</div><div class="fht-cell"></div></th><th style=""><div class="th-inner sortable">Đơn giá</div><div class="fht-cell"></div></th><th style=""><div class="th-inner sortable">Thành Tiền</div><div class="fht-cell"></div></th><th style=""><div class="th-inner sortable">Tác vụ</div><div class="fht-cell"></div></th></tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr data-index="0">
+                                                        <td style="">Galaxy S21 Plus 5G 128GB Mới Fullbox</td>
+                                                        <td style=""><img src="../../products-images/1.png" style="width: 75px"></td>
+                                                        <td class="a-center movewishlist" style=""><input name="slGoods[1]" type="number" min="1" maxlength="100" class="input-text qty form-control" title="Qty" value="128" fdprocessedid="nzw1r"></td>
+                                                        <td style=""><input type="text" name="dgGoods[1]" class="input-text form-control" value="2323" fdprocessedid="uo138n"></td>
+                                                        <td style="">297344</td>
+                                                        <td style="">
+                                                            <div class="rf" style="display: flex; justify-content: space-around;">
+                                                                <a class="btn" href="insert-goods.php?action=deleteProduct&amp;idProduct=1"><i class="glyphicon glyphicon-trash"></i></a>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+
+                                            </table>
+                                            <div class="fixed-table-pagination"><div class="pull-left pagination-detail"><span class="pagination-info">Showing 1 to 1 of 1 rows</span><span class="page-list"><span class="btn-group dropup"><button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" fdprocessedid="50d5nq"><span class="page-size">10</span> <span class="caret"></span></button><ul class="dropdown-menu" role="menu"><li class="active"><a href="javascript:void(0)">10</a></li><li><a href="javascript:void(0)">25</a></li><li><a href="javascript:void(0)">50</a></li><li><a href="javascript:void(0)">100</a></li></ul></span> records per page</span></div><div class="pull-right pagination"><ul class="pagination"><li class="page-first disabled"><a href="javascript:void(0)">&lt;&lt;</a></li><li class="page-pre disabled"><a href="javascript:void(0)">&lt;</a></li><li class="page-number active disabled"><a href="javascript:void(0)">1</a></li><li class="page-next disabled"><a href="javascript:void(0)">&gt;</a></li><li class="page-last disabled"><a href="javascript:void(0)">&gt;&gt;</a></li></ul></div></div>
+                                        </div>
+                                    </div><div class="clearfix"></div>
+                                </div>
+                                <label>
+                                    <h3 class="text-success">Tổng tiền: 297,344 VNĐ</h3>
+                                </label>
+                                <button type="submit" class="btn btn-danger pull-right" name="thanhToan" fdprocessedid="t7e2s">
+                                    <i class="glyphicon glyphicon-floppy-saved"></i> Thanh toán phiếu nhập
+                                </button>
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+                <
+            </form>
+
+        </div>
+    </div>
+</div>

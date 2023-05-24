@@ -1,0 +1,54 @@
+﻿@model IEnumerable<Product>
+@{
+	ViewData["Title"] = "Home Page";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="col-md-12">
+	<div class="row">
+		<div class="products-tabs">
+			<!-- tab -->
+			<div id="tab1" class="tab-pane active">
+				<div class="products-slick slick-initialized slick-slider" data-nav="#slick-nav-1">
+					<!-- product -->
+
+					<div class="slick-list draggable">
+						<div class="slick-track" style="opacity: 1; width: 4102px; transform: translate3d(0px, 0px, 0px);">
+							@foreach (var item in Model)
+							{
+								<div class="product slick-slide slick-cloned" data-slick-index="0" aria-hidden="true" tabindex="0" style="width: 263px;">
+									<div class="product-img">
+										<img src="@item.ProductImage" alt="">
+										<div class="product-label">
+											<span class="new">NEW</span>
+										</div>
+									</div>
+									<div class="product-body">
+										<p class="product-category">@item.Category.CategoryName</p>
+										<h3 class="product-name"><a  asp-action="Details" asp-route-productId="@item.Id">@item.ProductName</a></h3>
+										<h4 class="product-price">@item.ProductPrice.ToString("c")</h4>
+										<div class="product-rating">
+											<i class="fa fa-star"></i>
+											<i class="fa fa-star"></i>
+											<i class="fa fa-star"></i>
+											<i class="fa fa-star"></i>
+											<i class="fa fa-star-o"></i>
+										</div>
+									
+									</div>
+									
+								</div>
+							}
+
+
+
+						</div>
+					</div>
+
+				</div>
+				<div id="slick-nav-1" class="products-slick-nav"><button class="slick-prev slick-arrow" aria-label="Previous" type="button" style="display: inline-block;">Previous</button><button class="slick-next slick-arrow" aria-label="Next" type="button" style="display: inline-block;">Next</button></div>
+			</div>
+			<!-- /tab -->
+		</div>
+	</div>
+</div>
+@await Component.InvokeAsync("AllProduct")

@@ -1,0 +1,33 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "_AdminLayout";
+}
+
+<div class="row">
+    <div class="col-md-12 table-responsive-md">
+        <div class="row">
+            <div class="col-md-12 table-responsive-md">
+                <a class="btn btn-xs btn-outline-primary float-md-right mb-3" asp-action="Upsert"> New Company</a>
+                <table id="tblData" class="table table-striped table-info">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Address</th>
+                            <th>City</th>
+                            <th>State</th>
+                            <th>Phone Number</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    
+                </table>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+@section Scripts{
+    <script src="~/js/company.js"></script>
+}

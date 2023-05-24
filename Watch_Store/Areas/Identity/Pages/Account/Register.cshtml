@@ -1,0 +1,77 @@
+﻿
+@page
+@{
+	Layout = "_LoginLayout";
+}
+@model RegisterModel
+<div id="layout-page" class="bgfafafa">
+	<div class="container">
+		<div id="customer-login">
+			<h1>Create Account</h1>
+
+
+			<form asp-route-returnUrl="@Model.ReturnUrl" method="post">
+
+				<div class="clearfix large_form">
+					<input asp-for="Input.Name" id="last_name" class="text" placeholder="Name" size="30">
+					<input asp-for="Input.StreetAddress" placeholder="StreetAddress" id="first_name" class="text" size="30">
+					@*<label for="birthday" class="label icon-field"><i class="icon-login icon-envelope "></i></label>*@
+					<input asp-for="Input.City" id="datepicker" placeholder="City" class="text" size="30">
+					@*<label for="phone" class="label icon-field"><i class="icon-login icon-envelope "></i></label>*@
+					<input asp-for="Input.PhoneNumber" placeholder="PhoneNumber" id="phone" class="text" size="20">
+					<input asp-for="Input.Email" placeholder="Email" id="email" class="text" size="30">
+					<input asp-for="Input.Password" placeholder="Password" id="password" class="password text" size="30">
+					<input asp-for="Input.ConfirmPassword" placeholder="ConfirmPassword" id="password" class="password text" size="30">
+					<input asp-for="Input.State" placeholder="State" id="email" class="text" size="30">
+					<input asp-for="Input.PostalCode" placeholder="PostalCode" id="email" class="text" size="30">
+				</div>
+				@if (User.IsInRole(SD.Role_Admin))
+				{
+					<div class="form-floating mb-3 col-md-6">
+						<select asp-for="Input.Role" asp-items="@Model.Input.RoleList" class="form-select">
+							<option disabled selected>-Select Role-</option>
+						</select>
+					</div>
+					<div class="form-floating mb-3 col-md-6">
+						<select asp-for="Input.CompanyId" style="display:none;" asp-items="@Model.Input.CompanyList" class="form-select">
+							<option disabled selected>-Select Company-</option>
+						</select>
+					</div>
+				}
+
+				<div class="action_bottom">
+					<button class="btn-more btn-login">Register</button>
+				</div>
+				<div class="req_pass text-center">
+					<a class="btn-more btn-register" href="/Identity/Account/Login">Go Back</a>
+				</div>
+
+
+			</form>
+		</div>
+	</div>
+</div>
+
+@*@if (TempData.ContainsKey("success"))
+{
+	<div class="alert alert-success" role="alert">
+		@TempData["success"]
+	</div>
+}*@
+
+@section Scripts {
+	<partial name="_ValidationScriptsPartial" />
+	<script>
+		$(document).ready(function () {
+			$('#Input_Role').change(function () {
+				var selection = $('#Input_Role Option:Selected').text();
+				if (selection == 'Company') {
+					$('#Input_CompanyId').show();
+				}
+				else {
+					$('#Input_CompanyId').hide();
+				}
+			})
+		})
+	</script>
+}

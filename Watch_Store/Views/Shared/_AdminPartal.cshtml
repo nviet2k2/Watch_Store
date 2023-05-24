@@ -1,0 +1,13 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using Watch_Store.Utility;
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
+@*<ul class="navbar-nav">*@
+@if (SignInManager.IsSignedIn(User))
+{
+    <div class="header-info ms-3">
+        <span class="font-w600">Hi,<b> @UserManager.GetUserName(User)!</b></span>
+        <small class="text-end font-w400"></small>
+    </div>
+}

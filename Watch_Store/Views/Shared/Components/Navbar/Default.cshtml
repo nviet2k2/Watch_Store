@@ -1,0 +1,25 @@
+﻿@model IEnumerable<Category>
+<nav id="navigation">
+	<!-- container -->
+	<div class="container">
+		<!-- responsive-nav -->
+		<div id="responsive-nav">
+			<!-- NAV -->
+			<ul class="main-nav nav navbar-nav" style="font-size: 2rem;">
+				<li class="active"><a href="~/Customer/Home">Home</a></li>
+				
+				<li><a href="/Customer/Home/ProductByCategory" >Categories</a></li>
+				@foreach(var item in Model)
+				{
+					<li><a href="/Customer/Home/ProductByCategory?catId=@item.Id">@item.CategoryName</a></li>
+				}
+
+
+			</ul>
+			<!-- /NAV -->
+		</div>
+		<!-- /responsive-nav -->
+	</div>
+	<!-- /container -->
+</nav>
+

@@ -1,0 +1,12 @@
+﻿@model IEnumerable<Category>
+<div class="featured__controls">
+
+    <ul>
+        @foreach (var item in Model)
+        {
+        <li data-filter="">@item.CategoryName</li>
+       
+       }
+    </ul>
+
+</div>

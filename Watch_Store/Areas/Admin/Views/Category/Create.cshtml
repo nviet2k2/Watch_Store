@@ -1,0 +1,57 @@
+﻿@{
+    ViewData["Title"] = "Index";
+    Layout = "_AdminLayout";
+}
+@model Watch_Store.Models.Category
+<div class="row">
+    <div class="col-md-12 table-responsive-md">
+        <div class="row">
+            <div class="col-md-12 table-responsive-md">
+                <form method="post" asp-action="Create" enctype="multipart/form-data">
+                    <div asp-validation-summary="All" class="text-danger"></div>
+
+                    <div class="col-md-2"></div>
+                    <div class="form-group col-md-2">
+                        <label asp-for="@Model.CategoryName"></label>
+                    </div>
+                    <div class="form-group col-md-3">
+                        <input asp-for="@Model.CategoryName" class="form-control" />
+                        <span asp-validation-for="@Model.CategoryName" class="text-danger"></span>
+                    </div>
+
+
+                    <div class="form-row">
+                        <div class="form-group col-2">
+                            <label class="form-label" asp-for="@Model.DisplayOrder"></label>
+                        </div>
+                        <div class="form-group col-3">
+                            <input class="form-control" asp-for="@Model.DisplayOrder" />
+                            <span asp-validation-for="@Model.DisplayOrder" class="text-danger"></span>
+                        </div>
+
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <button type="submit" class="btn btn-rounded btn-primary float-left">
+                            <i class="fas fa-plus-square" style="margin-right:0.7em"></i>Save
+                        </button>
+                        <a asp-action="index" class="btn btn-rounded btn-success float-right"><i class="fas fa-caret-square-left" style="margin-right:0.7em"></i>Back</a>
+                        <br />
+                        <br />
+                        <br />
+
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    }

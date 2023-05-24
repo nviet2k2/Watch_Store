@@ -1,0 +1,67 @@
+﻿@page
+@model LoginModel
+
+@{
+	ViewData["Title"] = "Log in";
+	Layout = "_LoginLayout";
+}
+
+<div class="wrapper_smb">
+	<div class="gird_smb">
+		<div class="grid__item_smb">
+			<div id="customer-login">
+				<div id="login" class="userbox">
+					<h1>Đăng nhập</h1>
+					<div class="login_main_fire">
+
+						<a id="btn-facebook-login" href="#" class="login_fire">
+							<img src="https://file.hstatic.net/1000253775/file/facebook_d19e01c4e6464724bdc5a917e218216e.png" alt="loign facebook">
+							<span>Facebook</span>
+						</a>
+						<a id="btn-google-login" href="#" class="login_fire">
+							<img src="https://file.hstatic.net/1000187248/file/icon_google_389d33cd8f004048a6a562f04b2de83f.png" alt="login google">
+							<span>google</span>
+						</a>
+						<div id="google-one-tap-login"></div>
+					</div>
+					<form accept-charset="UTF-8" id="customer_login" method="post">
+						@*<input name="form_type" type="hidden" value="customer_login">
+						<input name="utf8" type="hidden" value="✓">*@
+
+
+						<p class="mg-0 style-bold text-center label-or">
+							HOẶC ĐĂNG NHẬP VỚI ...
+						</p>
+						<div class="clearfix large_form">
+							<input autocomplete="username" aria-required="true" type="text" asp-for="Input.Email" id="customer_email" placeholder="Nhập email hoặc số diện thoại" class="text">
+							<span asp-validation-for="Input.Email" class="text-danger"></span>
+							<input asp-for="Input.Password" autocomplete="current-password" aria-required="true" autocomplete="current-password" id="customer_password" placeholder="Mật khẩu" class="text">
+						</div>
+						<div class="form-check-inpu">
+							<label asp-for="Input.RememberMe" class="form-label">
+								<input class="t" asp-for="Input.RememberMe" />
+								@Html.DisplayNameFor(m => m.Input.RememberMe)
+							</label>
+						</div>
+						<div class="action_bottom text-center">
+							<button class="btn-more btn-login">Log in</button>
+							<a href="#" onclick="showRecoverPasswordForm();return false;" class="style-forget">Quên mật khẩu?</a>
+						</div>
+						<div class="req_pass text-center">
+							<a class="btn-more btn-register" href="/Identity/Account/Register">Register</a>
+						</div>
+
+
+					</form>
+				</div>
+
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+@section Scripts {
+	<partial name="_ValidationScriptsPartial" />
+}

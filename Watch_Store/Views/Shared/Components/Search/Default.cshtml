@@ -1,0 +1,17 @@
+﻿@model IEnumerable<Category>
+<div class="header-search">
+	<form asp-controller="Home" asp-action="ProductByCategory">
+		<select name="categoryId" class="input-select">
+			<option value="0">ALL</option>
+			@foreach (var item in Model)
+			{
+				<option value="@item.Id">@item.CategoryName</option>
+
+			}
+		</select>
+		<input class="input" name="keywords" placeholder="Search here" value="@ViewData["CurrentFilter"]">
+		<button class="search-btnt">
+			Search
+		</button>
+	</form>
+</div>

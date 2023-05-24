@@ -1,0 +1,22 @@
+﻿@model Product
+@using Microsoft.AspNetCore.Http
+<div id="breadcrumb" class="section">
+	<!-- container -->
+	<div class="container">
+		<!-- row -->
+		<div class="row">
+			<div class="col-md-12">
+				
+				<ul class="breadcrumb-tree">
+					<li><a href="/Customer/Home">Home</a></li>
+					<li><a href="/Customer/Home/ProductByCategory"></a>Categories</li>
+					<li><a href="/Customer/Home/ProductByCategory?catId=@Model.Category.Id">Accessories</a></li>
+					<li class="active">@Model.ProductName</li>
+				</ul>
+				
+			</div>
+		</div>
+		<!-- /row -->
+	</div>
+	<!-- /container -->
+</div>
